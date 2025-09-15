@@ -26,7 +26,7 @@ It supports classification, JSON extraction, schema validation, and observabilit
     ```bash
    poetry shell
     ```
-7. **Set your OpenAI key**
+7. **Set your OpenAI key**  
  Create `.env` file in your repo directory, and define `OPENAI_API_KEY` variable (see `.env.dist` for example)
 
 ### Running example
