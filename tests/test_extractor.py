@@ -9,7 +9,6 @@ from src.extractor import (
 )
 
 
-# Fake OpenAI client
 class FakeResponse:
     def __init__(self, text: str):
         self.output_text = text
@@ -35,7 +34,6 @@ class FakeClient:
         return FakeResponse(out)
 
 
-# Fixtures
 @pytest.fixture
 def registry():
     return {
@@ -67,7 +65,6 @@ def registry():
     }
 
 
-# Tests
 def test_extract_success_plain_json(registry):
     text = "This looks like a W2 form"
     llm_client = FakeClient(json.dumps({

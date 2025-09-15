@@ -7,7 +7,7 @@ It supports classification, JSON extraction, schema validation, and observabilit
 
 ### Requirements
 
--   Python 3.12+
+-   Python 3.13+
 -   Poetry for dependency management (see https://python-poetry.org/docs/ for installation instructions)
 -   OpenAI API key
 
@@ -31,8 +31,8 @@ It supports classification, JSON extraction, schema validation, and observabilit
 
 ### Running example
 
-1. (Optional) Change `text` in `src/example.py` to your desired input text.
-2. From your repo directory, run `poetry run python src/example.py`
+1. (Optional) Change `text` in `src/main.py` to your desired input text.
+2. From your repo directory, run `poetry run python src/main.py`
 
 ### Running mock tests
 

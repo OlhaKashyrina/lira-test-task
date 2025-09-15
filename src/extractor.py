@@ -24,7 +24,6 @@ def count_tokens(text: str, model: str) -> int:
     try:
         encoding = tiktoken.encoding_for_model(model)
     except KeyError:
-        # fallback encoding
         encoding = tiktoken.get_encoding("cl100k_base")
     return len(encoding.encode(text))
 
@@ -150,7 +149,6 @@ def extract(
     for attempt in range(2):
         logger.info(f"Attempt {attempt+1}")
 
-        # Step 1: select schema
         try:
             if schema is not None:
                 schema_id = schema.get("$id", "unknown")
@@ -165,7 +163,6 @@ def extract(
 
         schema_version = selected_schema.get("version")
 
-        # Step 2: extract
         try:
             extracted = call_llm_extract(text, selected_schema, llm, model=model, metrics=metrics)
         except ExtractionError as e:
@@ -173,7 +170,6 @@ def extract(
             attempts.append({"stage": "extract", "schema": schema_id, "error": str(e)})
             continue
 
-        # Step 3: validate
         try:
             validate_against_schema(extracted, selected_schema)
         except SchemaValidationError as e:
@@ -184,7 +180,6 @@ def extract(
             else:
                 break
 
-        # Success
         return {
             "doc_type": schema_id,
             "schema_version": schema_version,
@@ -192,7 +187,6 @@ def extract(
             "metrics": metrics,
         }
 
-    # Failure
     raise ExtractionError({
         "message": "Extraction failed after 2 attempts.",
         "attempts": attempts,
