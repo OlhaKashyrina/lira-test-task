@@ -14,13 +14,19 @@ It supports classification, JSON extraction, schema validation, and observabilit
 ### Setup
 
 1.  **Clone the repository**
-    ```git clone https://github.com/OlhaKashyrina/lira-test-task.git```
-    ```cd <repo-directory>```
-2. **Install dependencies via Poetry**
-    ```poetry install```
-3. **Activate virtual environment**
-    ```poetry shell```
-5. **Set your OpenAI key**
+    ```bash
+    git clone https://github.com/OlhaKashyrina/lira-test-task.git
+    cd <repo-directory>
+    ```
+3. **Install dependencies via Poetry**
+    ```bash
+   poetry install
+    ```
+5. **Activate virtual environment**
+    ```bash
+   poetry shell
+    ```
+7. **Set your OpenAI key**
  Create `.env` file in your repo directory, and define `OPENAI_API_KEY` variable (see `.env.dist` for example)
 
 ### Running example
