@@ -1,0 +1,14 @@
+{
+  "$id": "w2",
+  "title": "W2 Form",
+  "version": "1.0",
+  "type": "object",
+  "properties": {
+    "employer_name": { "type": "string" },
+    "employee_name": { "type": "string" },
+    "wages": { "type": "number" },
+    "tax_withheld": { "type": "number" }
+  },
+  "required": ["employer_name", "employee_name", "wages"],
+  "additionalProperties": false
+}
